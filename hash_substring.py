@@ -1,12 +1,20 @@
 def read_input():
 
-    try:
-        input_type = input().rstrip()  # Choose input type (i for keyboard input, f for file input)
-        pattern = input().rstrip()  # Read pattern from input
-        text = input().rstrip()  # Read text from input
-    except EOFError:
-        pattern = ''
-        text = ''
+
+    input_type = input().rstrip()  # Choose input type (i for keyboard input, f for file input)
+    pattern = input().rstrip()  # Read pattern from input
+    text = input().rstrip()  # Read text from input
+
+    if input_type.startswith("F"):
+        filename = str(input())
+        filename = "tests/" + filename
+        with open(filename, 'r') as f:
+            pattern = f.readline()
+            text = f.readline().rstrip()
+    else:
+        raise ValueError("Invalid input option")
+
+
     return pattern, text
 
 
