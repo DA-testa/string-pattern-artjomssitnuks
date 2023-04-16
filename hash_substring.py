@@ -2,10 +2,12 @@ def read_input():
 
 
     input_type = input().rstrip()  # Choose input type (i for keyboard input, f for file input)
-    pattern = input().rstrip()  # Read pattern from input
-    text = input().rstrip()  # Read text from input
+    
+    if input_type.startswith("I"):
+        pattern = input().rstrip()
+        text = input().rstrip()
 
-    if input_type.startswith("F"):
+    elif input_type.startswith("F"):
         filename = str(input())
         filename = "tests/" + filename
         with open(filename, 'r') as f:
