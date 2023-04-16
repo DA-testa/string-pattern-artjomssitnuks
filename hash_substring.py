@@ -1,16 +1,9 @@
 def read_input():
 
-    first_input = input()
-    if first_input.startswith("I"):
-        pattern = input()
-        text = pattern.rstrip()
-    else:
-        pattern = input()
-        text = pattern.rstrip()
-        
+    input_type = input().rstrip()  # Choose input type (i for keyboard input, f for file input)
+    pattern = input().rstrip()  # Read pattern from input
+    text = input().rstrip()  # Read text from input
     return pattern, text
-
-
 
 
 def print_occurrences(output):
