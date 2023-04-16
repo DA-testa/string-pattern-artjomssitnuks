@@ -9,7 +9,7 @@ def read_input():
         elif input_type.startswith("F"):
             filename = "tests/06" 
             with open(filename, 'r') as f:
-                pattern = f.readline()
+                pattern = f.readline().rstrip()
                 text = f.readline().rstrip()
         else:
             raise ValueError("Invalid input option")
