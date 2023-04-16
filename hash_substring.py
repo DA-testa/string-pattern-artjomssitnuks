@@ -5,13 +5,12 @@ def read_input():
         pattern = input()
         text = pattern.rstrip()
     else:
-        text = first_input.strip()
+        pattern = input()
+        text = pattern.rstrip()
+        
+    return pattern, text
 
-    mismatch = find_mismatch(text)
-    if mismatch is None:
-        print("Success")
-    else:
-        print(mismatch.position)
+
 
 
 def print_occurrences(output):
