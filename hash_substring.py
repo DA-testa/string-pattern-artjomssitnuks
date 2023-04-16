@@ -1,23 +1,24 @@
 def read_input():
+    try:
+        input_type = input().rstrip()  # Choose input type (i for keyboard input, f for file input)
 
+        if input_type.startswith("I"):
+            pattern = input().rstrip()
+            text = input().rstrip()
 
-    input_type = input().rstrip()  # Choose input type (i for keyboard input, f for file input)
-    
-    if input_type.startswith("I"):
-        pattern = input().rstrip()
-        text = input().rstrip()
+        elif input_type.startswith("F"):
+            filename = str(input())
+            filename = "tests/" + filename
+            with open(filename, 'r') as f:
+                pattern = f.readline()
+                text = f.readline().rstrip()
+        else:
+            raise ValueError("Invalid input option")
 
-    elif input_type.startswith("F"):
-        filename = str(input())
-        filename = "tests/" + filename
-        with open(filename, 'r') as f:
-            pattern = f.readline()
-            text = f.readline().rstrip()
-    else:
-        raise ValueError("Invalid input option")
-
-
-    return pattern, text
+        return pattern, text
+    except EOFError:
+        print("Error: End-of-file (EOF) condition occurred. Please provide valid input.")
+        return read_input()
 
 
 def print_occurrences(output):
