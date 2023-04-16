@@ -1,8 +1,12 @@
 def read_input():
 
-    input_type = input().rstrip()  # Choose input type (i for keyboard input, f for file input)
-    pattern = input().rstrip()  # Read pattern from input
-    text = input().rstrip()  # Read text from input
+    try:
+        input_type = input().rstrip()  # Choose input type (i for keyboard input, f for file input)
+        pattern = input().rstrip()  # Read pattern from input
+        text = input().rstrip()  # Read text from input
+    except EOFError:
+        pattern = ''
+        text = ''
     return pattern, text
 
 
